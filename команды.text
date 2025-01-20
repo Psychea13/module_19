@@ -1,0 +1,24 @@
+18 модуль:
+pip install django                              # установка
+django-admin startproject djangoProject         # создать проект
+python manage.py startapp djangoapp             # создать приложение
+cd djangoProject                                # перейти в папку
+python manage.py runserver                      # запустить сервер
+
+
+19 модуль:
+python manage.py migrate                        # инициализировать базу данных, ее запустить
+python manage.py makemigrations                 # создать талицу в базе данных, как только мы описали свои модели
+
+python manage.py shell                                      # открыть консоль, чтобы отправлять QuerySet запросы
+from djangoapp.models import Author                         # QuerySet запрос
+Author.objects.all()                                        # сколько в этой модели объектов
+Author.objects.create(name='New author', bio='test')        # QuerySet на создание объекта
+Author.objects.filter(bio='')                               # фильтрация (bio - пустая строка)
+Author.objects.filter(bio='').update(bio='1213123')         # обновить/заполнить информацией
+Author.objects.count()                                      # количество всех объектов в БД(базе данных)
+Author.objects.all()                                        # все объекты в БД
+a = Author.objects.get(id=1)                                # выводим в переменную, чтобы получить какой-то конкретный объект
+a                                                           # вывести объект
+a.delete()                                                  # удалить объект
+a = Author.objects.all()                                    # все объекты в переменную, чтобы очистить всю БД
